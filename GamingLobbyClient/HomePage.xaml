@@ -1,0 +1,28 @@
+﻿<Window x:Class="GamingLobbyClient.HomePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GamingLobbyClient"
+        mc:Ignorable="d"
+        Title="HomePage" Height="450" Width="800"
+        Background="Black">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://application:,,,/Resources/home_page_background.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
+            <TextBox Name="LobbyNameTextBox" Width="200" Margin="10" Text="Enter Lobby Name"
+                     GotFocus="LobbyNameTextBox_GotFocus" LostFocus="LobbyNameTextBox_LostFocus"
+                     Background="#333" Foreground="White" FontFamily="Consolas" FontSize="14" Padding="5"/>
+            <Button Name="CreateLobbyButton" Content="Create Lobby Room" Width="200" Margin="10" Click="CreateLobbyButton_Click"
+                    Background="#444" Foreground="White" FontFamily="Consolas" FontSize="14" Padding="5" BorderBrush="#888" BorderThickness="2"/>
+            <Button Name="JoinLobbyButton" Content="Join Lobby Room" Width="200" Margin="10" Click="JoinLobbyButton_Click"
+                    Background="#444" Foreground="White" FontFamily="Consolas" FontSize="14" Padding="5" BorderBrush="#888" BorderThickness="2"/>
+            <Button Name="LogoutButton" Content="Logout" Width="200" Margin="10" Background="Red" Foreground="White" Click="LogoutButton_Click"
+                    FontFamily="Consolas" FontSize="14" Padding="5" BorderBrush="#888" BorderThickness="2"/>
+            <ListBox Name="LobbyRoomsListBox" Width="200" Height="200" Margin="10" SelectionChanged="LobbyRoomsListBox_SelectionChanged"
+                     Background="#333" Foreground="White" FontFamily="Consolas" FontSize="14" BorderBrush="#888" BorderThickness="2"/>
+        </StackPanel>
+    </Grid>
+</Window>

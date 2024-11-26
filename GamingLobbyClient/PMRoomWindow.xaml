@@ -1,0 +1,46 @@
+﻿<Window x:Class="GamingLobbyClient.PMRoomWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Private Message Room" Height="450" Width="800">
+    <Grid>
+        <!-- Background Image -->
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://application:,,,/Resources/chatroom_window_background.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+
+        <DockPanel>
+            <!-- Top section with username and leave button -->
+            <Grid DockPanel.Dock="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="UsernameTextBlock" FontWeight="Bold" FontSize="16" Margin="10" VerticalAlignment="Center" Grid.Column="0" Foreground="White"/>
+                <Button Content="Leave" Width="100" Margin="10" VerticalAlignment="Center" Grid.Column="1" Click="LeaveButton_Click"
+                        Background="Red" Foreground="White" FontFamily="Consolas" FontSize="14" BorderBrush="#888" BorderThickness="2"/>
+            </Grid>
+
+            <!-- Message list -->
+            <ListView x:Name="MessageListView" DockPanel.Dock="Top" Margin="10" Height="300"
+                      Background="#333" Foreground="White" FontFamily="Consolas" FontSize="14" BorderBrush="#888" BorderThickness="2">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <Run Text="{Binding SenderUserName}" FontWeight="Bold" Foreground="Red"/>
+                            <Run Text=": " Foreground="White"/>
+                            <Run Text="{Binding MessageText}" Foreground="White"/>
+                        </TextBlock>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <!-- Input and send button -->
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="10">
+                <TextBox x:Name="InputMessageBox" Width="450" Height="30" VerticalAlignment="Center" Margin="0,0,10,0"
+                         Background="#333" Foreground="White" FontFamily="Consolas" FontSize="14" BorderBrush="#888" BorderThickness="2"/>
+                <Button Content="Send" Width="100" Click="Button_Click"
+                        Background="Red" Foreground="White" FontFamily="Consolas" FontSize="14" BorderBrush="#888" BorderThickness="2"/>
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</Window>

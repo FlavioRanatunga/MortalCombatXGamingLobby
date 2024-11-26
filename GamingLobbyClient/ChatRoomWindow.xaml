@@ -1,0 +1,36 @@
+﻿<Window x:Class="GamingLobbyClient.ChatRoomWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GamingLobbyClient"
+        mc:Ignorable="d"
+        Title="ChatRoomWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://application:,,,/Resources/chatroom_window_background.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+
+        <TextBox x:Name="InputMessageBox" HorizontalAlignment="Left" Height="27" Margin="11,361,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="270" 
+                 Background="#333" Foreground="White" FontFamily="Consolas" FontSize="14" BorderBrush="#888" BorderThickness="2"/>
+        <Button x:Name="SendMessageBox" Content="Send" HorizontalAlignment="Left" Height="27" Margin="286,361,0,0" VerticalAlignment="Top" Width="74" Click="SendMessageBox_Click" RenderTransformOrigin="1.236,-1.116"
+                Background="Red" Foreground="White"  FontFamily="Consolas" FontSize="14" Padding="5" BorderBrush="#888" BorderThickness="2"/>
+        <Button x:Name="FileUploadButton" Content="Upload File"  Margin="365,361,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="27" RenderTransformOrigin="-0.14,0.93" Click="FileUploadButton_Click" 
+                Background="Red" Foreground="White"  FontFamily="Consolas" FontSize="12"  BorderBrush="#888" BorderThickness="2"/>
+        <ListBox Name="ListBoxMessages" HorizontalAlignment="Left" Height="241" Margin="11,109,0,0" VerticalAlignment="Top" Width="440" d:ItemsSource="{d:SampleData ItemCount=5}" 
+                 Background="#333" Foreground="White" FontFamily="Consolas" FontSize="14" BorderBrush="#888" BorderThickness="2"/>
+        <ListBox  Name="ListBoxMembers" ItemsSource="{Binding RoomMembers}" HorizontalAlignment="Left" Height="143" Margin="546,109,0,0" VerticalAlignment="Top" Width="184" d:ItemsSource="{d:SampleData ItemCount=5}" MouseDoubleClick="ListBoxMembers_MouseDoubleClick"
+                  Background="#333" Foreground="White" FontFamily="Consolas" FontSize="14" BorderBrush="#888" BorderThickness="2"/>
+        <Label Content="Players in room" HorizontalAlignment="Left" Height="31" Margin="546,73,0,0" VerticalAlignment="Top" Width="127"  
+               Background="#333" Foreground="White" FontFamily="Consolas" FontSize="14" BorderBrush="#888" BorderThickness="2"/>
+        <Label Content="Lobby Room Messages" HorizontalAlignment="Left" Height="30" Margin="11,62,0,0" VerticalAlignment="Top" Width="189"
+               Background="#333" Foreground="White" FontFamily="Consolas" FontSize="14" BorderBrush="#888" BorderThickness="2"/>
+        <Button Name="LeaveRoomButton" Content="Leave Room" HorizontalAlignment="Left" Height="39" Margin="687,13,0,0" VerticalAlignment="Top" Width="76" Click="LeaveRoomButton_Click" 
+                Background="Red" Foreground="White"  FontFamily="Consolas" FontSize="12"  BorderBrush="#888" BorderThickness="2"/>
+        <Label x:Name="RoomNameLabel" Content="" HorizontalAlignment="Left" Height="29" Margin="11,13,0,0" VerticalAlignment="Top" Width="299" 
+               Background="#333" Foreground="White" FontFamily="Consolas" FontSize="12" BorderBrush="#888" BorderThickness="2" />
+        <Label x:Name="UserNameLabel" Content="" HorizontalAlignment="Left" Height="29" Margin="328,13,0,0" VerticalAlignment="Top" Width="160" 
+            Background="#333" Foreground="White" FontFamily="Consolas" FontSize="12" BorderBrush="#888" BorderThickness="2" />
+
+    </Grid>
+</Window>
